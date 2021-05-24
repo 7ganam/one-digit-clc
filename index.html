@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css
+    ">
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container  all_container">
+      <div class="row justify-content-md-center">
+        <div class="col-12 col-md-5 ">
+          <form>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">الناتج</label>
+              <textarea
+                class="form-control"
+                id="output_text"
+                rows="1"
+              ></textarea>
+            </div>
+          </form>
+        </div>
+        <div
+          class="
+            col-12 col-md-2
+            d-flex
+            justify-content-center
+            align-items-center
+          "
+        >
+          <button type="button" class="btn btn-primary" onclick="myFunction()">
+            <i class="fas fa-arrow-left"></i>
+            احسب
+          </button>
+        </div>
+        <div class="col-12 col-md-5">
+          <form>
+            <div class="form-group">
+              <label for="exampleFormControlTextarea1">
+                ادخل نصا بالعربية هنا</label
+              >
+              <textarea
+                class="form-control"
+                id="input_text"
+                rows="10"
+              ></textarea>
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="show_steps_wrapper">
+        <p class=" show_steps_button">
+            <button class="btn btn-primary " type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                <div class=" show_steps_button_inner">
+                    <i class="fas fa-angle-down mr-2 mt-1"></i>     
+                    <div> اظهر الخطوات</div>
+       
+                </div>    
+            </button>
+          </p>
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                <div class="steps_container">
+
+                    <div id ='char_code_sum_div' class="char_code_sum_div">
+          
+                      <div class="result_box">
+                          ادخل نصا ثم اضغط احسب لتظهر الخطوات
+                      </div>
+          
+                  </div>
+          
+          
+                  <div id ='char_code_sub_sum_div' class="char_code_sub_sum_div">
+
+                  </div>
+          
+               
+           
+              
+              
+              </div>
+            </div>
+          </div>
+
+
+  
+</div>
+
+    <script>
+      const char_array = [
+        'ء',
+        'ا',
+        'آ',
+        'أ',
+        'إ',
+        'ى',
+        'ب',
+        'ة',
+        'ت',
+        'ث',
+        'ج',
+        'ح',
+        'خ',
+        'د',
+        'ذ',
+        'ر',
+        'ز',
+        'س',
+        'ش',
+        'ص',
+        'ض',
+        'ط',
+        'ظ',
+        'ع',
+        'غ',
+        'ـ',
+        'ف',
+        'ق',
+        'ك',
+        'ل',
+        'م',
+        'ن',
+        'ه',
+        'و',
+        'ؤ',
+        'ي',
+        'ئ',
+      ];
+
+
+      const createchar_code_box = function createchar_code_box(data) {
+        const markup = 
+
+            `<div class="char_code_box">
+            <div class="char_glyph">${data.char}</div>
+            <div class="separator"></div>
+            <div class="char_code">${data.code}</div>
+            </div>`;
+        return markup;
+     };
+
+     const createchar_sybmol = function createchar_code_box(sybmol) {
+        const markup = 
+            `<div class="symbol_box">
+                    <div class="symbol">${sybmol}</div>
+            </div>`;
+        return markup;
+     };
+
+     const createResult = function createchar_code_box(result) {
+        const markup = 
+            `
+            <div class="result_box">
+                ${result}
+            </div>
+          `;
+        return markup;
+     };
+
+
+
+     const create_number_char_code_box = function create_number_char_code_box(number) {
+        const markup = 
+            `<div class="char_code_box">
+            <div class="char_glyph">${number}</div>
+            </div>`;
+        return markup;
+     };
+
+
+
+     const create_char_code_sub_sub_sum = function createchar_code_box( inner_elements  ) {
+        const markup = 
+            `
+            <div id="char_code_sub_sub_sum_0" class="char_code_sub_sub_sum">
+${inner_elements}
+                
+            </div>
+          `;
+        return markup;
+     };
+
+
+
+      function reduce_sum(input_integer) {
+        var value = input_integer,
+          sum = 0;
+          let number_cards =``;
+        while (value) {
+          number_cards =number_cards + create_number_char_code_box(value % 10);
+          if(Math.floor(value / 10)){
+            number_cards =number_cards +createchar_sybmol("+")
+          }
+          else{
+            number_cards =number_cards +createchar_sybmol("=")
+
+          }
+
+
+          sum += value % 10;
+          value = Math.floor(value / 10);
+        }
+        createdResult = createResult(sum)
+        number_cards = number_cards + createdResult ;
+        created_char_code_sub_sub_sum = create_char_code_sub_sub_sum(number_cards)
+        document.getElementById("char_code_sub_sum_div").insertAdjacentHTML( 'beforeend', created_char_code_sub_sub_sum );
+
+        if (sum > 9) {
+          reduce_sum(sum);
+        } else {
+          document.getElementById('output_text').value = sum;
+        }
+      }
+
+      function myFunction() {
+        const input_text = document.getElementById('input_text');
+        console.log(`input_text`, input_text.value);
+        let char_index_sum = 0;
+        document.getElementById("char_code_sum_div").innerHTML = '';
+        document.getElementById("char_code_sub_sum_div").innerHTML = '';
+
+        for (var x = 0; x < input_text.value.length; x++ ) {
+          let char =  input_text.value.charAt(x);
+          let char_index = char_array.indexOf(char);
+          if (char_index < 0) {
+            char_index =0;
+          }
+          char_index_sum = char_index_sum + char_index;
+          let created_char_code_box = createchar_code_box({char:char , code:char_index})
+
+          if (x<input_text.value.length-1){
+            createdchar_sybmol = createchar_sybmol("+")
+          }
+          else{
+            createdchar_sybmol = createchar_sybmol("=")
+          }
+
+          document.getElementById("char_code_sum_div").insertAdjacentHTML( 'beforeend', created_char_code_box );
+          document.getElementById("char_code_sum_div").insertAdjacentHTML( 'beforeend', createdchar_sybmol );
+
+        }
+
+        createdResult = createResult(char_index_sum)
+        document.getElementById("char_code_sum_div").insertAdjacentHTML( 'beforeend', createdResult );
+
+
+        console.log(`char_index_sum`, char_index_sum);
+        reduce_sum(char_index_sum);
+      }
+    </script>
+  </body>
+</html>

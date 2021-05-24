@@ -1,0 +1,121 @@
+.steps_container{
+    min-height: 100px;
+    width: 100%;
+}
+.char_code_sum_div{
+    display: flex;
+    /* background-color: coral; */
+    margin:20px;
+    flex-direction: row-reverse;
+    flex-wrap: wrap ;
+    border-bottom: solid 4px #0069D9;
+    padding-bottom: 20px;
+
+}
+.char_code_box{
+    color: white;
+    min-width: 60px;
+    min-height: 60px;
+    padding: 4px;
+    border-radius: 8px;
+    width:auto;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; 
+    margin:5px;
+}
+.char_glyph{
+    font-size: 18px;
+    font-weight: bold;
+
+}
+.separator{
+    border-bottom: 1px white solid;
+    height: 7px;
+    width: 90%;
+}
+.char_code{
+    font-size: 15px;
+}
+.symbol_box{
+    min-height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.symbol{
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    box-shadow: 0 0 5px 0 grey;
+    background-color: white;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    font-size: 25px;
+}
+
+.result_box{
+    min-height: 60px;
+    font-weight: bold;
+    font-size: 30px;
+    border-radius: 5px;
+    box-shadow: 0 0 5px 0 grey;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.char_code_sub_sub_sum{
+    display: flex;
+    /* background-color: coral; */
+    margin:20px;
+    flex-direction: row-reverse;
+    flex-wrap: wrap ;
+    border-bottom: solid 4px #0069D9;
+    padding-bottom: 20px;
+
+}
+
+.show_steps_button{
+    margin-left: auto;
+}
+.show_steps_wrapper{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+
+.show_steps_button_inner{
+    display: flex;
+    flex-direction: row;
+}
+
+.all_container{
+    margin-top: 100px;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: end;
+}
+
+#output_text {
+    white-space: normal;
+    text-align: justify;
+    -moz-text-align-last: center; /* Firefox 12+ */
+    text-align-last: center;
+    font-size: 160px;
+}
+
+label{
+    font-size: 30px;
+}
